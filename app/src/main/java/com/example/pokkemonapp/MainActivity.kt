@@ -2,6 +2,7 @@ package com.example.pokkemonapp
 
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
@@ -28,7 +29,8 @@ fun PokemonApp() {
     NavHost(navController = navController, startDestination = "main") {
         composable("main") { MainScreen(navController) }
         composable("detail/{pokemonId}") { backStackEntry ->
-            DetailScreen(pokemonId = backStackEntry.arguments?.getString("pokemonId")?.toInt() ?: 0)
+            val pokemonId = backStackEntry.arguments?.getString("pokemonId")?.toInt() ?: 0
+            DetailScreen(pokemonId = pokemonId)
         }
     }
 }
