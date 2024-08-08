@@ -28,7 +28,6 @@ class SplashActivity : ComponentActivity() {
             }
         }
 
-        // Navigate to MainActivity after a delay
         lifecycleScope.launch {
             delay(1000) // 1 seconds delay
             startActivity(Intent(this@SplashActivity, MainActivity::class.java))

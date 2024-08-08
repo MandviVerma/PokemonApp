@@ -28,8 +28,8 @@ class DetailViewModel @Inject constructor(
     private val repository: PokemonRepository,
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
-    private val pokemonId: String = savedStateHandle["pokemonId"] ?: "0"
 
+    private val pokemonId: String = savedStateHandle["pokemonId"] ?: "0"
     private val _pokemonDetail = MutableLiveData<PokemonDetail>()
     val pokemonDetail: LiveData<PokemonDetail> = _pokemonDetail
 
