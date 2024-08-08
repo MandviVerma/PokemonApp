@@ -93,6 +93,7 @@ fun PokemonItem(pokemon: Pokemon, onClick: () -> Unit) {
     Card(
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         shape = RoundedCornerShape(18.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.White), // Set the background color here
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 8.dp, horizontal = 8.dp) // Margin between each card item
@@ -101,11 +102,12 @@ fun PokemonItem(pokemon: Pokemon, onClick: () -> Unit) {
     ) {
         Box(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp) // Padding inside the card
+                .fillMaxWidth().height(100.dp)
+                .padding(16.dp)   .background(Color.Transparent)
         ) {
+            val formattedName = pokemon.name.replaceFirstChar { it.titlecase() }
 
-            Text(pokemon.name, style = MaterialTheme.typography.headlineSmall)
+            Text(formattedName, style = MaterialTheme.typography.headlineSmall, modifier = Modifier.align(Alignment.Center) )
         }
     }
 }
